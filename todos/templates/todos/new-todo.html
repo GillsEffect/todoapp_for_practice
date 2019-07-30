@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="new-todo">
+  <form action="{% url 'todos:new-todo' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="formGroupExampleInput">Todo Title</label>
+        <input type="text" name ='title' class="form-control" id="formGroupExampleInput" placeholder="Title of your New Todo">
+      </div>
+    <button type="submit" name="btn btn-danger">Add</button>
+  </form>
+</div>
+{% endblock %}

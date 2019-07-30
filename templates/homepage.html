@@ -1,0 +1,11 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<h1>Welcome to todoapp - for practice</h1>
+<div class="todos">
+    {% for todo in todos %}
+      <div class="todo">
+        <a href="{% url 'todos:todo_detail' pk=todo.pk %}">{{todo.title}}</a>
+      </div>
+    {% endfor %}
+</div>
+{% endblock %}
