@@ -20,7 +20,7 @@
     {% for todo in todos %}
     <tr>
         <th scope="row">{{todo.id}}</th>
-        <th scope="row"><a href="{% url 'todos:todo_detail' pk=todo.pk %}">{{todo.title}}</a></th>
+        <th scope="row">{{todo.title}}</th>
           {% if todo.completed %}
               <td>Done</td>
           {% else %}
