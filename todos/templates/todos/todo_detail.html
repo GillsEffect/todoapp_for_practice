@@ -3,9 +3,7 @@
 {% block content %}
 <div class='todo-detail'>
   <div class="todo">
-    <h2>{{ todo.title }}</h2>
-    <p>{{ todo.body }}</p>
-    <p>{{ todo.check }}</p>
+    <h2>{{ todo.title }}<a href="{% url 'todos:todo_edit' pk=todo.pk%}"></a></h2>
   </div>
 </div>
 {% endblock %}
