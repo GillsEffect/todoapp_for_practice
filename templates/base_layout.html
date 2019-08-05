@@ -11,11 +11,19 @@
   </head>
   <body>
     <header>
-      <h1><a href="{% url 'home' %}"><img src="{% static '1080x360(2).png' %}"/></a></h1>
+    <a href="{% url 'home' %}"><img src="{% static '1080x360(2).png' %}"/></a>
       <nav>
         <ul>
           <li><a href="/admin/">Admin Panel</a></li>
+          {% if user.is_authenticated %}
           <li><a href="/todos/new-todo/">New Todo</a></li>
+          <li>
+            <form class="site-form" action="{% url 'users:logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" name="button">Logout</button>
+            </form>
+          </li>
+          {% endif %}
         </ul>
       </nav>
     </header>
@@ -23,9 +31,9 @@
       {% block content %}
       {% endblock %}
     </div>
-    <!---<div style="position: relative">
-      <hr style="position: fixed; bottom: 40px; width:100%; text-align: center">
-      <p style="position: fixed; bottom: 0; width:100%; text-align: center">If you wanna be my lover, you gotta get with my friends...</p>
-    </div>--->
+    <div style="position: relative">
+
+      <p style="position: fixed; bottom: 0; width:100%; text-align: center">This website is made for practice by a novice website developer</p>
+    </div>
   </body>
 </html>
